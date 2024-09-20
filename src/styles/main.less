@@ -1,4 +1,7 @@
 @import 'variaveis.less';
+@import "mapas.less";
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(max-width: 1023px)";
 
 * {
     margin: 0;
@@ -7,7 +10,7 @@
     font-family: Roboto, sans-serif;
 }
 body {
-    background-color: @corDeFundo;
+    background-color: #colors[backgroundColor];
 }
 li {
     list-style: none;
@@ -16,6 +19,25 @@ li {
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media @breakpointMobile {
+        .products {
+        display: block;
+        }
+        .product-item {
+        margin-bottom: 32px;
+        }
+    }
+
+    @media @breakpointTablet {
+        .container {
+        max-width: 80%;
+        }
+        .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+        }
+    }
 }
 header {
     background-color: @corDoCabecalho;
@@ -78,20 +100,4 @@ section {
 .product-button:hover {
     background-color: @corDosBotoes;
 }
-@media screen and (max-width: 1023px) {
-    .container {
-    max-width: 80%;
-    }
-    .products {
-    grid-template-columns: repeat(2, 48.5%);
-    column-gap: 3%;
-    }
-}
-@media screen and (max-width: 767px) {
-    .products {
-    display: block;
-    }
-    .product-item {
-    margin-bottom: 32px;
-    }
-}
+
